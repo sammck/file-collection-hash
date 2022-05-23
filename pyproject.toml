@@ -1,0 +1,80 @@
+[tool.poetry]
+name = "file-collection-hash"
+version = "0.1.0"
+description = "Stable, fast hash of collection of content of files and directories, optionally including permissions, dates, etc."
+authors = [ "Sam McKelvie <dev@mckelvie.org>" ]
+license = "MIT"
+keywords = [ "hash", "compare", "file", "directory", "tar", "sha", "md5", "tarball", "archive", "zip", "gzip" ]
+readme = "README.md"
+homepage = "https://github.com/sammck/file-collection"
+repository = "https://github.com/sammck/file-collection.git"
+
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+[tool.poetry.dev-dependencies]
+mypy = "^0.931"
+dunamai = "^1.9.0"
+python-semantic-release = "^7.25.2"
+pylint = "^2.13.9"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+file-collection-hash = 'file_collection_hash.__main__:run'
+
+[tool.semantic_release]
+version_variable = 'file_collection/version.py:__version__,tests/test_file_collection.py:_file_copllection_version'
+version_toml = 'pyproject.toml:tool.poetry.version'
+branch = 'main'
+upload_to_pypi = false
+upload_to_release = true
+build_command = "pip install poetry && poetry build"
+
+[tool.pylint.'MESSAGES CONTROL']
+disable=[
+    "wrong-import-order",
+    "duplicate-code",
+    "too-many-arguments",
+    "missing-function-docstring",
+    "import-outside-toplevel",
+    "too-few-public-methods",
+    "missing-class-docstring",
+    "unused-import",
+    "too-many-locals",
+    "unused-argument",
+    "invalid-name",
+    "no-self-use",
+    "global-statement",
+    "broad-except",
+    "too-many-branches",
+    "too-many-statements",
+    "exec-used",
+    "ungrouped-imports",
+    "subprocess-popen-preexec-fn",
+    "multiple-statements",
+    "too-many-public-methods",
+    "missing-module-docstring",
+    "too-many-instance-attributes",
+    "too-many-nested-blocks",
+    "unneeded-not",
+    "unnecessary-lambda",
+    "too-many-lines",
+    "too-many-boolean-expressions",
+  ]
+
+[tool.pylint.MASTER]
+ignore=[
+    ".venv",
+    "trash"
+  ]
+
+[tool.pylint.FORMAT]
+indent-after-paren=4
+indent-string='  '
+max-line-length=200
+indent=2
+
