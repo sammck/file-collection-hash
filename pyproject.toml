@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "file-collection-hash"
-version = "0.1.0"
+version = "1.0.0"
 description = "Stable, fast hash of collection of content of files and directories, optionally including permissions, dates, etc."
 authors = [ "Sam McKelvie <dev@mckelvie.org>" ]
 license = "MIT"
